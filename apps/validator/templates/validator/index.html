@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    {% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.ERROR %} class="{{ message.ERROR }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    <form action="register" method="POST">
+      {% csrf_token %}
+      Email: <input type="text" name="email"></input>
+      <input type="submit" value"submit"></input>
+    </form>
+  </body>
+</html>
